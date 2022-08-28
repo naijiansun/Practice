@@ -1,0 +1,21 @@
+<html>
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<p id = "flower"></p>
+<script>
+  console.log("about to fetch a flower");
+
+  GetImage().catch(error => {
+      console.error(error);
+      });
+
+  async function GetImage(){
+       const response = await fetch('http://127.0.0.1:10000/GetBalance');
+       const blob = await response.text();
+       document.getElementById('flower').innerHTML=blob;
+       }
+</script>
+</body>
+</html>
